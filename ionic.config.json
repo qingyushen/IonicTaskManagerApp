@@ -1,0 +1,7 @@
+{
+  "name": "myion",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

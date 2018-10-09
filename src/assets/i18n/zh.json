@@ -1,0 +1,161 @@
+{
+  "tabs":{
+    "Tasks":"任务",
+    "Following":"关注",
+    "Overview":"总览",
+    "Me":"我的"
+  },
+  "Task":{
+    "task":"任务",
+    "completed":"已完成",
+    "complete":"完成",
+    "delete":"删除",
+    "public":"公开",
+    "private":"私密",
+    "Todo":"未完成",
+    "unfollow":"取关",
+    "deleteAlertTitle": "确认要删除吗？",
+    "deleteAlertBody": "点击确定将删除所有已完成任务"
+  },
+  "updates":{
+    "updates":"动态",
+    "day":" 天 ",
+    "hour":" 小时 ",
+    "min":" 分钟前",
+    "updated":"任务更新: ",
+    "created":"任务创建: ",
+    "completed":"任务完成："
+  },
+  "overview":{
+    "overview":"总览",
+    "Weekly Report":"周报",
+    "Updates":"团队动态",
+    "members":"成员",
+    "analytics":"小组分析"
+  },
+  "progress":{
+    "Progress":"周报"
+  },
+  "members":{
+    "Members":"成员",
+    "follow":" 关注",
+    "unfollow":" 取关",
+    "team":"小组：",
+    "add":"添加",
+    "placeholder":"邮箱地址",
+    "title":"添加成员",
+    "Message":"请输入要添加成员的邮箱地址"
+  },
+  "glance":{
+    "Following":"我的关注",
+    "unfollow":"取消关注"
+  },
+  "Me":{
+    "Me":"我的",
+    "Settings":"设置",
+    "logout":"登出账户",
+    "Group":"小组",
+    "email":"邮件: ",
+    "team":"小组: "
+  },
+  "Settings":{
+    "Settings":"设置",
+    "Language":"设置语言",
+    "Chinese":"中文",
+    "English":"英文"
+  },
+  "input":{
+    "status":" 状态",
+    "input":"添加任务",
+    "task":"任务内容",
+    "duedate":"截止日期",
+    "submit":"提交",
+    "public":"公开",
+    "visibility":"他人可见",
+    "PUBLIC":"公开",
+    "PRIVATE":"私人",
+    "member":"成员ID",
+    "assign":"指定",
+    "title":"指派任务给：",
+    "okay":"确认",
+    "cancel":"取消"
+  },
+  "login":{
+    "login":"登录",
+    "register":"注册",
+    "email":"邮箱",
+    "password":"密码",
+    "alert":"用户名或密码错误"
+  },
+  "register":{
+    "alert1":"邮箱已注册",
+    "alert":"两次密码不匹配",
+    "alert3":"小组密码不匹配",
+    "alert2":"密码不正确",
+    "register":"注册",
+    "Username":"用户名",
+    "Email":"邮箱地址",
+    "Password":"输入密码",
+    "Cpassword":"确认密码",
+    "Group":"小组名称",
+    "team":"小组",
+    "GroupPwd":"小组密码",
+    "CgroupPwd":"确认小组密码",
+    "userinfo":"用户信息",
+    "create":"创建小组",
+    "join":"加入小组",
+    "alertTitle":"选择: "
+  },
+  "taskdetail":{
+    "title":"重新编辑",
+    "content":"任务内容",
+    "clear":"清空",
+    "confirm":"确认",
+    "Author":"作者： ",
+    "AssignTo":"指派给： ",
+    "completed":"完成于",
+    "created":"创建于",
+    "follow":" 关注",
+    "unfollow":"取关"
+  },
+  "follow":{
+    "ToMe":"我指派的：",
+    "ToOther":"我关注的：",
+    "by":"来自: "
+  },
+  "memberdetail":{
+    "title":"用户详情",
+    "cancel":"返回",
+    "complete":"已完成",
+    "current":"正在进行"
+  },
+  "group":{
+    "title":"小组管理",
+    "subtitle":"当前小组:  ",
+    "delete":"删除",
+    "newGroup":"添加小组",
+    "group":"组名",
+    "password":"小组密码",
+    "cancel":"取消",
+    "add":"添加",
+    "no":"取消",
+    "yes":"确认",
+    "switch":"将切换到小组: ",
+    "confirm":"请确认",
+    "deleteG":"将删除小组:  "
+  },
+  "analytics":{
+    "title":"小组分析",
+    "numRanking":"完成任务量排名",
+    "tasks":"任务",
+    "timeRanking":"平均任务完成时间排名",
+    "min":"分钟",
+    "taskDaily":"每天任务完成量",
+    "Monday":"周一",
+    "Tuesday":"周二",
+    "Wednesday":"周三",
+    "Thursday":"周四",
+    "Friday":"周五"
+  }
+
+}

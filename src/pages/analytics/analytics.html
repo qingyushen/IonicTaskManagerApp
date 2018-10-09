@@ -1,0 +1,38 @@
+<ion-header color="primary">
+  <ion-navbar color="primary">
+    <ion-title>
+      {{'analytics.title' | translate}}
+    </ion-title>
+    <!--Button to reset analytics if current user is admin-->
+    <ion-buttons *ngIf="isAdmin()" end>
+      <button (click)="showResetConfirm()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!--Ranking of most tasks completed-->
+  <ion-card>
+    <ion-card-header>{{'analytics.numRanking' | translate}}</ion-card-header>
+    <ion-item *ngFor="let user of sortedUsers">
+      <ion-row>{{user.name}}: {{user.tasksCompleted}} {{'analytics.tasks' | translate}}</ion-row>
+    </ion-item>
+  </ion-card>
+  <!--Average time for task completion-->
+  <ion-card>
+    <ion-card-header>{{'analytics.timeRanking' | translate}}</ion-card-header>
+    <ion-item *ngFor="let user of sortUsersByAvgTime">
+      <ion-row>{{user.name}}:  {{user.avgTime}} {{'analytics.min' | translate}}</ion-row>
+    </ion-item>
+  </ion-card>
+  <!--Number of tasks completed for each day of week past week-->
+  <ion-card>
+    <ion-card-header>
+      {{'analytics.taskDaily' | translate}}
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

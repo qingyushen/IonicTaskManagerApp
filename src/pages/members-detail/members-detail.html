@@ -1,0 +1,84 @@
+<!--
+-->
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar>
+    <ion-title>{{'memberdetail.title'| translate}}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary">{{'memberdetail.cancel'| translate}}</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding #pageContent fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{memberBeingViewed.profileImgUrl}}">
+      </ion-avatar>
+      <ion-row>
+        <ion-col>
+          <h2>{{memberBeingViewed.name}}</h2>
+          <p>{{memberBeingViewed.email}}</p>
+        </ion-col>
+        <ion-col>
+          <button *ngIf="loggedInUserIsAdmin && !memberIsAdmin" ion-button small (click)="makeUserAdmin()">
+          Make admin
+          </button>
+          <button *ngIf="loggedInUserIsAdmin && memberIsAdmin" ion-button small (click)="makeUserMember()">
+            Make member
+          </button>
+          <span *ngIf="!loggedInUserIsAdmin && memberIsAdmin">Admin</span>
+          <span *ngIf="!loggedInUserIsAdmin && !memberIsAdmin">Member</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-list-header>
+        {{'memberdetail.current'| translate}}
+      </ion-list-header>
+      <!--replace these strings with task provider task-->
+      <ion-item-sliding *ngFor="let t of todoTasksOfMember">
+
+        <button ion-item (click)="openItem(t)">
+          {{t.bodyText.toString()}}
+        <!--t.followedBy.indexOf(loggedInUser) == -1-->
+
+        <span *ngIf="!findSame(t.followedBy)" item-end ion-button clear small color="secondary" >
+          <ion-icon name="heart-outline"></ion-icon>
+          {{ 'members.follow'| translate}}
+        </span>
+
+        <span *ngIf="findSame(t.followedBy)" item-end ion-button clear small color="danger" >
+          <ion-icon name="heart"></ion-icon>
+          {{ 'members.unfollow'| translate}}
+        </span>
+        </button>
+      </ion-item-sliding>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-list-header>
+        {{'memberdetail.complete'| translate}}
+      </ion-list-header>
+      <ion-item-sliding *ngFor="let c of completedTasksOfMember">
+        <ion-item>{{c.bodyText}}</ion-item>
+      </ion-item-sliding>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+
+

@@ -1,0 +1,12 @@
+
+<ion-tabs>
+  <ion-tab [root]="tab1Root" tabIcon="list" tabTitle=" {{ 'tabs.Tasks'| translate}}" tabsHideOnSubPages="true"></ion-tab>
+  <ion-tab [root]="tab2Root"  tabIcon="infinite" tabTitle=" {{ 'tabs.Following'| translate}}" tabsHideOnSubPages="true"></ion-tab>
+  <ion-tab [root]="tab3Root"  tabIcon="albums" tabTitle=" {{ 'tabs.Overview'| translate}}" tabsHideOnSubPages="true"></ion-tab>
+  <ion-tab [root]="tab4Root"  tabIcon="person" tabTitle=" {{ 'tabs.Me'| translate}}" tabsHideOnSubPages="true"></ion-tab>
+</ion-tabs>
+
+
+
+<!--// Set the pages - Todo, inbox, Overview (3 links inside: Updates, Weekly progress, At a follow), Members-->
+<!--// (Current user will be at top with ability to change settings by click_-->

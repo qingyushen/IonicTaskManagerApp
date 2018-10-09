@@ -1,0 +1,36 @@
+<!--
+  Generated template for the ForgotPwdPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>忘记密码</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-row>
+  <ion-list inset>
+    <ion-list-header>验证邮箱</ion-list-header>
+    <ion-item>
+      <ion-input type="text" placeholder="请输入邮箱" name="name" required [(ngModel)]="emailAdrs"></ion-input>
+      <button ion-button small [disabled]="!verifyCode.disable" (click)="sendToken(emailAdrs)" item-end="" class="auth-btn" type="submit">{{verifyCode.verifyCodeTips}}</button>
+    </ion-item>
+  <ion-item *ngIf="tokenAuth==true">
+    <ion-input type="text" placeholder="请输入验证码" name="name" required [(ngModel)]="tokenName"></ion-input>
+  </ion-item>
+    <button class="submit-btn" [disabled]="active=='inactive' " (click)=" authenToken(tokenName)" ion-button class="submit-btn" full type="submit">验证</button>
+  </ion-list>
+</ion-row>
+
+  <ion-row *ngIf="alert==true" padding text-color="mycolor">请检查邮件地址</ion-row>
+  <ion-row *ngIf="alertToken==true" padding text-color="mycolor">验证错误</ion-row>
+  <ion-row *ngIf="invalid==true" padding text-color="mycolor">{{alert2}}</ion-row>
+  <ion-row *ngIf="expire==true" padding text-color="mycolor">{{alert2}}</ion-row>
+
+</ion-content>

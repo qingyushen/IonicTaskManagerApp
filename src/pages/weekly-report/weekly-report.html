@@ -1,0 +1,45 @@
+<!--
+  Generated template for the WeeklyReportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'progress.Progress'| translate}}</ion-title>
+      <ion-buttons end="">
+        <button ion-button icon-only color="royal" (click)="download()">
+          <ion-icon name="md-arrow-round-down"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngFor="let m of members" >
+    <ion-list-header>
+      {{m.User.name}}
+    </ion-list-header>
+      <ion-item-sliding *ngFor="let t of m.Tasks">
+        <ion-item button (click)="openItem(t)">
+          <ion-icon name="checkmark-circle-outline" *ngIf="t.done==1" item-start></ion-icon>
+          <ion-icon name="radio-button-off" *ngIf="t.done==0" item-start></ion-icon>
+          {{t.bodyText}}
+          <button *ngIf="!findSame(t.followedBy)" ion-button item-end clear small color="secondary" icon-start >
+            <ion-icon name="heart-outline"></ion-icon>
+            {{ 'members.follow'| translate}}
+          </button>
+          <button *ngIf="findSame(t.followedBy)" ion-button item-end clear small color="danger" icon-start >
+            <ion-icon name="heart"></ion-icon>
+            {{ 'members.unfollow'| translate}}
+          </button>
+        </ion-item>
+      </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>

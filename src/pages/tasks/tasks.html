@@ -1,0 +1,166 @@
+<ion-header>
+  <ion-navbar>
+    <!-- add tag if instant updates required (ionChange)="sortTasks()"-->
+    <ion-segment [(ngModel)]="change" >
+      <ion-segment-button value="to-do">
+        {{'Task.task'|translate}}
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        {{'Task.completed'|translate}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div [ngSwitch]="change">
+    <!--Todo Segement-->
+    <div *ngSwitchCase="'to-do'">
+      <!--<button ion-button block (click)="changeLan()">change</button>-->
+
+      <ion-list padding-top>
+        <ion-list-header>
+          {{'Task.public'|translate}}
+        </ion-list-header>
+        <ion-card>
+        <ion-item-sliding *ngFor="let t of publics">
+          <button ion-item (click)="openItem(t)">
+            {{t.bodyText}}
+            <!--<ion-note color="font" text-color="fontlight">{{'follow.by' | translate}}{{t.authorName}}</ion-note>-->
+            <ion-note item-end>{{t.dueDate}}</ion-note>
+          </button>
+          <!--Swipe right and delete feature -->
+          <ion-item-options side="right">
+            <button ion-button color="danger" (click)="delete(t,0)">
+              <ion-icon name="trash"></ion-icon>
+              {{'Task.delete'| translate}}
+            </button>
+          </ion-item-options>
+          <!--Swipe left and complete feature -->
+          <ion-item-options side="left">
+            <button ion-button color="secondary" (click)="complete(t, 0)">
+              <ion-icon name="checkbox-outline"></ion-icon>
+              {{'Task.complete'|translate}}
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        </ion-card>
+      </ion-list>
+
+      <ion-list padding-top>
+        <ion-list-header>
+          {{'Task.private'|translate}}
+        </ion-list-header>
+        <ion-card>
+        <ion-item-sliding *ngFor="let a of privates">
+          <button ion-item (click)="openItem(a)">
+            {{a.bodyText}}
+            <!--<ion-note color="font" text-color="fontlight">{{'follow.by' | translate}}{{a.authorName}}</ion-note>-->
+            <ion-note item-end>{{a.dueDate}}</ion-note>
+          </button>
+          <!--Swipe right and delete feature -->
+          <ion-item-options side="right">
+            <button ion-button color="danger" (click)="delete(a,1)">
+              <ion-icon name="trash"></ion-icon>
+              {{'Task.delete'| translate}}
+            </button>
+          </ion-item-options>
+          <!--Swipe left and complete feature -->
+          <ion-item-options side="left">
+            <button ion-button color="secondary" (click)="complete(a, 1)">
+              <ion-icon name="checkbox-outline"></ion-icon>
+              {{'Task.complete'|translate}}
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        </ion-card>
+      </ion-list>
+
+      <ion-fab bottom right>
+        <button ion-fab (click)="itemTapped()">
+          <ion-icon name="add">
+          </ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+
+    <!--Completed Segment-->
+    <div *ngSwitchCase="'completed'">
+      <ion-list padding-top>
+        <ion-list-header>
+          {{'Task.public'|translate}}
+        </ion-list-header>
+        <ion-card>
+          <ion-item-sliding *ngFor="let t of publicCompletedTasks">
+            <button ion-item (click)="openItem(t)">
+              {{t.bodyText}}
+              <!--<ion-note color="font" text-color="fontlight">{{'follow.by' | translate}}{{t.authorName}}</ion-note>-->
+              <ion-note item-end>{{t.dueDate}}</ion-note>
+            </button>
+            <!--Swipe right and delete feature -->
+            <ion-item-options side="right">
+              <button ion-button color="danger" (click)="delete(t, 2)">
+                <ion-icon name="trash"></ion-icon>
+                {{'Task.delete'| translate}}
+              </button>
+            </ion-item-options>
+            <!--Swipe left and complete feature -->
+            <ion-item-options side="left">
+              <button ion-button color="secondary" (click)="unComplete(t, 2)">
+                <ion-icon name="checkbox-outline"></ion-icon>
+                {{'Task.Todo'| translate}}
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-card>
+      </ion-list>
+
+      <ion-list padding-top>
+        <ion-list-header>
+          {{'Task.private'|translate}}
+        </ion-list-header>
+        <ion-card>
+          <ion-item-sliding *ngFor="let a of privateCompletedTasks">
+            <button ion-item (click)="openItem(a)">
+              {{a.bodyText}}
+              <!--<ion-note color="font" text-color="fontlight">{{'follow.by' | translate}}{{a.authorName}}</ion-note>-->
+              <ion-note item-end>{{a.dueDate}}</ion-note>
+            </button>
+            <!--Swipe right and delete feature -->
+            <ion-item-options side="right">
+              <button ion-button color="danger" (click)="delete(a,3)">
+                <ion-icon name="trash"></ion-icon>
+                {{'Task.delete'| translate}}
+              </button>
+            </ion-item-options>
+            <!--Swipe left and complete feature -->
+            <ion-item-options side="left">
+              <button ion-button color="secondary" (click)="unComplete(a, 3)">
+                <ion-icon name="checkbox-outline"></ion-icon>
+                {{'Task.Todo'| translate}}
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-card>
+      </ion-list>
+
+      <ion-fab bottom right>
+        <button ion-fab color="danger" (click)="showDeleteAlert()">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+  </div>
+
+
+
+</ion-content>
+

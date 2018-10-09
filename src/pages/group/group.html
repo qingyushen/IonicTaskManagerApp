@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'group.title'|translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item item-end class="teamName" text-color="fontlight" *ngIf="currentGroup">{{'group.subtitle'|translate}}{{currentGroup.name}}</ion-item>
+  <ion-list>
+    <ion-item-sliding *ngFor="let group of groups">
+      <button class="fullRow" ion-item (click)="showConfirmAlert(group)">
+        <!--<ion-avatar item-start><img src="../../assets/img/user.jpg"></ion-avatar>-->
+        <h2>{{group.name}}</h2>
+      </button>
+      <!--Swipe right and delete feature -->
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="showDeleteConfirm(group)">
+          <ion-icon name="trash"></ion-icon>
+          {{'group.delete'|translate}}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button ion-fab (click)="addGroup()">
+      <ion-icon name="add">
+      </ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

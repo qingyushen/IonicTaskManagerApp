@@ -1,0 +1,90 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-header no-border>
+
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'register.register'| translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <img  src="./assets/img/title.png"/>
+  <form  #registerForm="ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-list-header>{{'register.userinfo'| translate}}</ion-list-header>
+          <ion-item>
+            <ion-input type="text" placeholder={{Username.toString()}} name="name" required [(ngModel)]="username"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder={{Email.toString()}} name="email" required [(ngModel)]="email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="password" placeholder={{Password.toString()}} name="password" required ng-minlength="8" [(ngModel)]="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="password" placeholder={{Cpassword.toString()}} name="confirmation_password" required ng-minlength="8" [(ngModel)]="repassword"></ion-input>
+          </ion-item>
+
+          <ion-list-header text-color="font" name="first">
+            {{'register.team'| translate}}: {{visibleState}}
+            <button ion-button color="font"  outline item-end icon-start (click)="setTeam()">
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-list-header>
+
+
+        <ion-row *ngIf="status==1">
+          <ion-item>
+            <ion-input type="group" placeholder={{Group.toString()}} name="group" required [(ngModel)]="group"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder={{GroupPwd.toString()}} name="groupPassword" required  [(ngModel)]="groupPassword"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder={{CgroupPwd.toString()}} name="groupPassword" required  [(ngModel)]="RegroupPassword"></ion-input>
+          </ion-item>
+        </ion-row>
+
+          <ion-row *ngIf="status==0">
+            <ion-item>
+              <ion-input type="group" placeholder={{Group.toString()}} name="group" required [(ngModel)]="group"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" placeholder={{GroupPwd.toString()}} name="groupPassword" required [(ngModel)]="groupPassword"></ion-input>
+            </ion-item>
+          </ion-row>
+
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="judgepwd!='active'" padding text-color="mycolor">{{'register.alert2'| translate}}</ion-row>
+    <ion-row *ngIf="groupPassword!=RegroupPassword && status==1" padding text-color="mycolor">{{'register.alert3'| translate}}</ion-row>
+    <ion-row *ngIf="password!=repassword" padding text-color="mycolor">{{'register.alert'| translate}}</ion-row>
+    <ion-row *ngIf="judge !='active' " padding text-color="mycolor">{{'register.alert1'| translate}}</ion-row>
+    <ion-row margin-horizontal >
+
+        <button class="submit-btn" ion-button class="submit-btn" full type="submit" *ngIf="status==0 || status==1" [disabled]="!registerForm.form.valid" (click)="send()">{{'register.register'| translate}}</button>
+
+    </ion-row>
+
+  </form>
+</ion-content>

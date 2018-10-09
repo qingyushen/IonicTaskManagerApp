@@ -1,0 +1,31 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Settings.Settings'|translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!--Change the language-->
+  <ion-list>
+    <ion-item>
+      <ion-label>{{'Settings.Language'|translate}}</ion-label>
+      <ion-select placeholder="{{Lan}}">
+        <ion-option (ionSelect)="setEng()" value="en">{{'Settings.English'|translate}}</ion-option>
+        <ion-option (ionSelect)="setChn()" value="ch" >{{'Settings.Chinese'|translate}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <!--Delete Account-->
+  <!--<ion-list>-->
+    <!--<button class="deleteButton" color="danger" ion-button (click)="confirmDelete()">-->
+      <!--Delete Account-->
+    <!--</button>-->
+  <!--</ion-list>-->
+</ion-content>

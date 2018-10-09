@@ -1,0 +1,162 @@
+{
+  "tabs":{
+    "Tasks":"Tasks",
+    "Following":"following",
+    "Overview":"Overview",
+    "Me":"Me"
+  },
+  "Task":{
+    "task":"todos",
+    "completed":"completed",
+    "complete":"complete",
+    "delete":"Delete",
+    "public":"Public",
+    "private":"Private",
+    "Todo":"Todo",
+    "unfollow":"unfollow",
+    "deleteAlertTitle": "Confirm Delete",
+    "deleteAlertBody": "Are you sure you want to delete all completed tasks?"
+  },
+  "updates":{
+    "updates":"updates",
+    "day":" day ",
+    "hour":" hour ",
+    "min":" min ago",
+    "updated":"Task updated: ",
+    "created":"Task created: ",
+    "completed":"Task completed："
+  },
+  "overview":{
+    "overview":"Overview",
+    "Weekly Report": "Weekly Report",
+    "Updates":"Team Updates",
+    "members":"Members",
+    "analytics":"Analytics"
+  },
+  "progress":{
+    "Progress":"Weekly Report"
+  },
+  "members":{
+    "Members":"Members",
+    "follow":" follow",
+    "unfollow":" unfollow",
+    "team":"Team",
+    "add":"Add",
+    "placeholder":"Email",
+    "title":"Add Member",
+    "Message":"Enter the email address of user to be added"
+  },
+  "glance":{
+    "Following":"Following",
+    "unfollow":"unfollow"
+  },
+  "Me":{
+    "Me":"Me",
+    "Settings":"Settings",
+    "logout":"logout",
+    "Group":"Group",
+    "email":"email: ",
+    "team":"team: "
+  },
+  "Settings":{
+    "Settings":"Settings",
+    "Language":"Language",
+    "Chinese":"Chinese",
+    "English":"English"
+  },
+  "input":{
+    "status":"status",
+    "input":"Add task",
+    "task":"task content",
+    "duedate":"Due Date",
+    "submit":"submit",
+    "public":"public",
+    "visibility":"Visibility",
+    "PUBLIC":"PUBLIC",
+    "PRIVATE":"PRIVATE",
+    "member":"MemberID",
+    "assign":"assign",
+    "title":"Assign to: ",
+    "okay":"Okay",
+    "cancel":"Cancel"
+  },
+  "login":{
+    "login":"login",
+    "register":"register",
+    "email":"EMAIL",
+    "password":"PASSWORD",
+    "alert":"the password or the email address is not correct"
+  },
+  "register":{
+    "alert1":"the email is already registered",
+    "alert":"password does not match",
+    "alert3":"group password does not match",
+    "alert2":"invalid password",
+    "register":"register",
+    "Username":"User name",
+    "Email":"Email",
+    "Password":"enter your password",
+    "Cpassword":"confirm your password",
+    "Group":"group name",
+    "team":"team",
+    "GroupPwd":"Group password",
+    "CgroupPwd":"Confirm group password",
+    "userinfo":"User Info",
+    "create":"Create a team",
+    "join":"Join a team",
+    "alertTitle":"Choose: "
+
+  },
+  "taskdetail":{
+    "title":"Edit Task",
+    "content":"task content",
+    "clear":"clear",
+    "confirm":"confirm",
+    "Author":"Author: ",
+    "AssignTo":"Assign to: ",
+    "completed":"Completed on",
+    "created":"Created on",
+    "follow": "Follow",
+    "unfollow": "Unfollow"
+  },
+  "follow":{
+    "ToMe":"Assigned by me to others:",
+    "ToOther":"Not assigned by me:",
+    "by":"By: "
+  },
+  "memberdetail":{
+    "title":"MembersDetail",
+    "cancel":"Back",
+    "complete":"COMPLETED TASK",
+    "current":"CURRENT TASK"
+  },
+  "group":{
+    "title":"Groups",
+    "subtitle":"Current group: ",
+    "delete":"Delete",
+    "newGroup":"New Group",
+    "group":"Group Name",
+    "password":"Group password",
+    "cancel":"Cancel",
+    "add":"Add",
+    "no":"No",
+    "yes":"Yes",
+    "switch":"Are you sure you want to switch to ",
+    "confirm":"Confirm",
+    "deleteG":"Are you sure you want to be delete group "
+  },
+  "analytics":{
+    "title":"Analytics",
+    "numRanking":"Most Tasks Completed This Week",
+    "tasks":"tasks",
+    "timeRanking":"Average Time for Task Completion",
+    "min":"minutes",
+    "taskDaily":"Tasks completed per day",
+    "Monday":"Monday",
+    "Tuesday":"Tuesday",
+    "Wednesday":"Wednesday",
+    "Thursday":"Thursday",
+    "Friday":"Friday"
+  }
+
+}

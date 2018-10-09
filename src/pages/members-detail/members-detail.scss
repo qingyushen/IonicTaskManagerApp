@@ -1,0 +1,24 @@
+page-members-detail {
+
+  .titleicon {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align:center;
+  }
+  .toolbar-background {
+    background-color: white;
+  }
+
+
+  .toolbar-title.toolbar-title-md,
+  .toolbar-title.toolbar-title-ios,
+  .toolbar-title.toolbar-title-wp {
+    color: #6d6e70;
+  }
+
+  .scroll-content {
+    background-color: whitesmoke;
+  }
+}

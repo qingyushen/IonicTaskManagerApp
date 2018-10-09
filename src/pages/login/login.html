@@ -1,0 +1,44 @@
+<ion-header no-border>
+  <ion-navbar transparent no-border>
+    <ion-title justify-content-around>
+      <span text-color="my-custom-color">  {{'login.login'| translate}} </span>
+     </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+  <form #loginForm="ngForm" (ngSubmit)="login(username, password)" autocomplete="off">
+    <ion-row>
+      <ion-col>
+
+        <ion-list inset>
+            <ion-input class="input"  placeholder="{{'login.email'| translate}}" name="username" id="loginField" type="text" required [(ngModel)]="username"></ion-input>
+            <ion-input class="input" placeholder="{{'login.password'| translate}}" name="password" id="passwordField" type="password" required [(ngModel)]="password"></ion-input>
+
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="activate != 'activate'" padding text-color="mycolor">{{'login.alert'| translate}}</ion-row>
+    <ion-row margin-horizontal>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <button ion-button class="submit-btn" block     [disabled]="!loginForm.form.valid">{{'login.login'| translate}}
+        </button>
+    </ion-row>
+  </form>
+  <ion-row margin-horizontal >
+    <button ion-button class="submit-btn" block [outline]="white"  (click)="registerTapped()">{{'login.register'|translate}}</button>
+  </ion-row>
+  <div transparent (click)="goToSignup()" class="reset">
+    <span>忘记密码？<strong>点击重设</strong></span>
+  </div>
+  <img  src="./assets/img/logo.png"/>
+</ion-content>
+
+
+
+
+

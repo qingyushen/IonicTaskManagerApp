@@ -1,0 +1,39 @@
+page-login {
+  [text-color="mycolor"] {
+    color: red;
+  }
+  .reset {
+    text-align: center;
+    color: whitesmoke;
+    margin-top: 20px;
+  }
+ .scroll-content,.bg{
+  background: linear-gradient(25deg, #be93c5, #3d7eaa, #ffe47a ,#dae2f8, #d6a4a4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: 400% 400%;
+  animation: colorchange 25s ease-out infinite;
+}
+  [text-color="my-custom-color"] {
+    color: white;
+  }
+  @keyframes colorchange {
+    0%{background-position: 0% 99%}
+    50%{background-position: 100% 1%}
+    100%{background-position: 10% 90%}
+
+  }
+.input{
+  color: #f4f4f4;
+}
+.submit-btn{
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+}

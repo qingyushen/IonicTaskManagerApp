@@ -1,0 +1,158 @@
+<!--
+  Generated template for the FollowPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header color="primary">
+  <ion-navbar>
+    <ion-segment [(ngModel)]="change" >
+      <ion-segment-button value="to-do">
+        {{'Task.task'|translate}}
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        {{'Task.completed'|translate}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div [ngSwitch]="change">
+    <!--Todo Segement-->
+    <div *ngSwitchCase="'to-do'">
+      <!--Followed todo tasks assigned to self-->
+      <ion-list padding-top>
+        <ion-list-header>
+          {{'follow.ToMe'| translate}}
+        </ion-list-header>
+        <ion-card>
+          <ion-item-sliding *ngFor="let t of followedAndAssignedToMe">
+            <button ion-item (click)="openItem(t)">
+              {{t.bodyText}}
+              <!--<ion-note color="font" text-color="fontlight">{{'follow.by' | translate}}{{t.authorName}}</ion-note>-->
+              <ion-note item-end>{{t.dueDate}}</ion-note>
+            </button>
+            <!--Swipe left and complete feature -->
+            <ion-item-options side="left">
+              <button *ngIf="isAssignedTo(t)" ion-button color="secondary" (click)="complete(t, 0)">
+                <ion-icon name="checkbox-outline"></ion-icon>
+                {{'Task.complete'|translate}}
+              </button>
+            </ion-item-options>
+            <!--Swipe right and delete feature -->
+            <ion-item-options side="right">
+              <button *ngIf="isAssignedTo(t) || isAuthor(t)" ion-button color="danger" (click)="delete(t, 0)">
+                <ion-icon name="trash"></ion-icon>
+                {{'Task.delete'| translate}}
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-card>
+      </ion-list>
+
+      <!--Followed todo tasks assigned to others-->
+      <ion-list padding-top>
+        <ion-list-header>
+          {{'follow.ToOther'| translate}}
+        </ion-list-header>
+        <ion-card>
+          <ion-item-sliding *ngFor="let a of followedAndAssignedToOthers">
+            <button ion-item (click)="openItem(a)">
+              {{a.bodyText}}
+              <!--<ion-note color="font" text-color="fontlight">{{'follow.by' | translate}}{{a.authorName}}</ion-note>-->
+              <ion-note item-end>{{a.dueDate}}</ion-note>
+            </button>
+            <!--Swipe left and complete feature -->
+            <ion-item-options side="left">
+              <button *ngIf="isAssignedTo(a)" ion-button color="secondary" (click)="complete(a, 1)">
+                <ion-icon name="checkbox-outline"></ion-icon>
+                {{'Task.complete'|translate}}
+              </button>
+            </ion-item-options>
+            <!--Swipe right and delete feature -->
+            <ion-item-options side="right">
+              <button *ngIf="isAssignedTo(a) || isAuthor(a)" ion-button color="danger" (click)="delete(a, 1)">
+                <ion-icon name="trash"></ion-icon>
+                {{'Task.delete'| translate}}
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-card>
+      </ion-list>
+    </div>
+
+    <!--PART 2: COMPLETED SECTION-->
+    <div *ngSwitchCase="'completed'">
+      <!--Followed and completed tasks assigned to self-->
+      <ion-list padding-top>
+        <ion-list-header>
+          {{'follow.ToMe'| translate}}
+        </ion-list-header>
+        <ion-card>
+          <ion-item-sliding *ngFor="let t of followedAndAssignedToMeCompleted">
+            <button ion-item (click)="openItem(t)">
+              {{t.bodyText}}
+              <!--<ion-note color="font" text-color="fontlight">{{'follow.by' | translate}}{{t.authorName}}</ion-note>-->
+              <ion-note item-end>{{t.dueDate}}</ion-note>
+            </button>
+            <!--Swipe left and complete feature -->
+            <ion-item-options side="left">
+              <button *ngIf="isAssignedTo(t) || isAuthor(t)" ion-button color="secondary" (click)="unComplete(t, 0)">
+                <ion-icon name="checkbox-outline"></ion-icon>
+                {{'Task.Todo'| translate}}
+              </button>
+            </ion-item-options>
+            <!--Swipe right and delete feature -->
+            <ion-item-options side="right">
+              <button *ngIf="isAssignedTo(t) || isAuthor(t)" ion-button color="danger" (click)="delete(t, 2)">
+                <ion-icon name="trash"></ion-icon>
+                {{'Task.delete'| translate}}
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-card>
+      </ion-list>
+
+      <!--Followed and completed tasks assigned to others-->
+      <ion-list padding-top>
+        <ion-list-header>
+          {{'follow.ToOther'| translate}}
+        </ion-list-header>
+        <ion-card>
+          <ion-item-sliding *ngFor="let a of followedAndAssignedToOthersCompleted">
+            <button ion-item (click)="openItem(a)">
+              {{a.bodyText}}
+              <!--<ion-note color="font" text-color="fontlight">{{'follow.by' | translate}}{{a.authorName}}</ion-note>-->
+              <ion-note item-end>{{a.dueDate}}</ion-note>
+            </button>
+            <!--Swipe left and complete feature -->
+            <ion-item-options side="left">
+              <button *ngIf="isAssignedTo(a) || isAuthor(a)" ion-button color="secondary" (click)="unComplete(a, 1)">
+                <ion-icon name="checkbox-outline"></ion-icon>
+                {{'Task.Todo'| translate}}
+              </button>
+            </ion-item-options>
+            <!--Swipe right and delete feature -->
+            <ion-item-options side="right">
+              <button *ngIf="isAssignedTo(a) || isAuthor(a)" ion-button color="danger" (click)="delete(a, 3)">
+                <ion-icon name="trash"></ion-icon>
+                {{'Task.delete'| translate}}
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-card>
+      </ion-list>
+    </div>
+  </div>
+
+</ion-content>

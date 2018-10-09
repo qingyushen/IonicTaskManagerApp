@@ -1,0 +1,15 @@
+page-taskdetail {
+  ion-card{
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .scroll-content {
+    background-color: whitesmoke;
+  }
+  .item-bold{
+    font-weight: bold;
+  }
+}
